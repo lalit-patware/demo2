@@ -1,0 +1,35 @@
+<h2 style="color:green;"> PROFILE DETAILS </h2>
+
+<table>
+<thead>
+  <tr>
+    <br>
+    <th>Age</th>
+    <th>contact_no</th>
+    <th>Dob</th>
+    <th>Image</th>
+    <th>City</th>
+     <th>Education</th>
+    <th>employment</th>   
+    <th colspan="2"></th>
+  </tr>
+</thead>  
+<tbody>
+  
+  <% @profile.each do |profile| %>
+   <tr>       
+     <td><%= profile.age%></td>
+     <td><%= profile.contact_no %></td>
+     <td><%= profile.dob%></td>   
+     <td><%= image_tag profile.image.url, width: "50px", height: "50px" %></td> 
+     <td><%= profile.city %></td>
+     <td><%= profile.education %></td>  
+     <td><%= profile.employment%></td>          
+   </tr>
+  <% end %>
+</tbody>  
+</table>
+
+<%= link_to 'Edit', edit_profile_path(@profile) %><br>
+<%= link_to 'delete', profile_path(@profile) %>
+<%= link_to 'back', posts_path%>

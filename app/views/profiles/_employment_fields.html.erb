@@ -1,0 +1,13 @@
+<div>
+  <div class="nested-fields">
+    <%= f.label :company_1 %><br>
+    <%= f.text_field :company_1 %>
+    
+    <br><%= f.label :position %><br>
+    <%= f.text_field :position %>
+
+    <br><%= f.label :address %><br>
+    <%= f.text_field :address %>
+
+    <br><%= link_to_remove_association "Remove Employment", f %>
+</div>

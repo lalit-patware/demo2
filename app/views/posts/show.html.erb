@@ -1,0 +1,35 @@
+<p style= "color: blue; text-align: center;"> CURRENT USER:<%=session[:user]["name"] %></p>
+<h2 style="color:green"> AUTHOR NAME:<%= @post.user.name %> </h2>
+  
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+ 
+<p>
+  <strong>Text:</strong>
+  <%= @post.description %>
+</p>
+
+<p>
+	<strong>image:</strong>
+	<%if @post.image.url %>
+	<%= link_to 'image', @post.image.url %>
+	<%= image_tag(@post.image.url, width: "50px", height: "50px") %>
+	<% end %>
+</p>
+
+<p><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+
+<% pre_like = @post.likes.find { |like| like.user_id == session[:user]["id"]} %>
+<% if pre_like %>
+  <%= button_to 'Unlike', post_like_path(@post, pre_like), method: :delete %>
+<% else %>
+  <%= button_to 'Like', post_likes_path(@post), method: :post %>
+<% end %>
+
+
+<h2 style="color:red">comments</h2>
+<%= render 'comments/comment'%>
+<%= render 'comments/form'%>
+<%= link_to 'Back', my_post_path %>

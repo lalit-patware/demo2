@@ -1,0 +1,94 @@
+<p style= "color: blue; text-align: left;"> Profile of <%=@profile.user.name %></p>
+
+<%= form_tag(profile_path, method: :get) do %>    
+  Post <%= text_field_tag :term, params[:term] %>
+  <%= submit_tag 'Search', name: nil %>
+<% end %>
+<p>
+  <strong>name:</strong>
+  <%= @profile.user.name %>
+</p>
+ 
+<p>
+  <strong>age:</strong>
+  <%= @profile.age %>
+</p>
+
+<p>
+  <strong>contact_no:</strong>
+  <%= @profile.contact_no %>
+</p>
+ 
+<p>
+  <strong>dob:</strong>
+  <%= @profile.dob %>
+</p>
+
+<p>
+  <strong>image:</strong>
+  <%if @profile.image.url %>
+  <%= link_to 'image', @profile.image.url %>
+  <%= image_tag(@profile.image.url, width: "100px", height: "100px") %>
+  <% end %>
+</p>
+
+<p>
+  <strong>city:</strong>
+  <%= @profile.city %>
+</p>
+
+<strong>Education details:</strong> 
+<% @profile.educations.each do |education| %> 
+  <p>
+    <strong>SSC: </strong>
+    <%= education.SSC %>
+  </p>
+
+  <p>
+    <strong>HSC: </strong>
+    <%= education.HSC %>
+  </p>
+
+  <p>
+   <strong>graduation: </strong>
+   <%= education.graduation %>
+  </p>
+
+  <p>
+    <strong>post_graduation: </strong>
+    <%= education.post_graduation %>
+  </p>
+
+ <% end %>
+
+<strong>Employment details:</strong>
+<% @profile.employments.each do |employment| %>
+
+  <p>
+    <strong>company: </strong>
+    <%= employment.company_1 %>
+  </p>
+
+  <p>
+    <strong>position: </strong>
+    <%= employment.position %>
+  </p>
+
+  <p>
+    <strong>address: </strong>
+    <%= employment.address %>
+  </p>
+
+<% end %>
+
+<strong> skills details</strong>
+<% @profile.skills.each do |skill| %>
+
+  <p>
+  <strong>skills: </strong>
+  <%= skill.skills %>
+  </p>
+
+<% end %>
+<%#= link_to 'edit', edit_profile_path%>
+<%= link_to 'back', my_post_path%>

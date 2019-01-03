@@ -1,0 +1,35 @@
+<div>
+  <p><strong>Educations Details:</strong></p>
+  <div id="educations">
+    <%= f.fields_for :educations do |education| %>
+    <%= render 'education_fields', f: education %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Add Education', f, :educations %>
+    </div>
+  </div>
+</div>
+
+<div>
+  <p><strong>Employments Details:</strong></p>
+  <div id="employments">
+    <%= f.fields_for :employments do |employment| %>
+    <%= render 'employment_fields', f: employment %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Add Employment', f, :employments %>
+    </div>
+  </div>
+</div>
+
+<div>
+  <p><strong>Skills Details:</strong></p>
+  <div id="skills">
+    <%= f.fields_for :skills do |skill| %>
+    <%= render 'skill_fields', f: skill %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Add Skill', f, :skills %>
+    </div>
+  </div>
+</div>

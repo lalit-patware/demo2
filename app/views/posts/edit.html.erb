@@ -1,0 +1,21 @@
+<p style= "color: blue; text-align: center;"> CURRENT USER:<%=session[:user]["name"] %></p>
+<h2>Edit post</h2>
+<%= form_with(model: @post, local: true) do |form| %>    
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p> 
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </p>
+  <p>
+    <%= form.label :image%><br>
+    <%= form.file_field :image %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+<%= link_to 'Back', posts_path %>
+

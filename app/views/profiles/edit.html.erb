@@ -1,0 +1,37 @@
+<p style= "color: blue; text-align: center;"> CURRENT USER:<%=session[:user]["name"] %></p>
+<h2>Edit Profile</h2>  
+
+<%= form_with(model: @profile, local: true) do |form| %>
+    
+  <!-- <p>
+    <%#= form.label :name %><br>
+    <%#= form.text_field :name %>
+  </p>  -->
+  <p>
+    <%= form.label :age %><br>
+    <%= form.number_field :age %>
+  </p>
+  <p>
+    <%= form.label :contact_no %><br>
+    <%= form.text_field :contact_no %>
+  </p> 
+  <p>
+    <%= form.label :dob %><br>
+    <%= form.number_field :dob %>
+  </p>
+  <p>
+    <%= form.label :image%><br>
+    <%= form.file_field :image %>
+  </p>
+  <p>
+    <%= form.label :city%><br>
+    <%= form.text_field :city %>
+  </p>  
+  <%= render partial: 'profiles/form', locals: {f: form}%>  
+  <p>
+    <%= form.submit %>
+  </p>
+
+  <%= link_to 'Back', my_post_path %>
+
+<% end %>

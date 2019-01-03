@@ -1,0 +1,49 @@
+<p style= "color: blue; text-align: center;"> CURRENT USER:<%=session[:user]["name"] %></p>
+<h2 style="color:green;"> STUDENTS DETAILS </h2>
+
+<%= link_to 'New post', new_post_path %>
+<%= link_to 'my post', my_post_path %>
+
+<%= form_tag(posts_path, method: :get) do %>		
+  Post <%= text_field_tag :term, params[:term] %>
+  <%= submit_tag 'Search', name: nil %>
+<% end %>
+
+<table>	
+  <tr>
+    <th>TITLE</th><br>
+    <br><th>DESCRIPTION</th>
+    <th>USER NAME </th>
+    <th>IMAGE</th>
+    <th colspan="4"></th>
+  </tr>
+    
+  <% @post.each do |post| %>
+   <tr>
+<!--      
+     <td> 
+      <%# p = post.user.profile %>
+      <%# if p %>
+        <%#= link_to post.title, profile_path(p) %>
+      <%# else %>
+        <%#= link_to post.title, 'javascript:void(0);' %>
+      <%# end %>
+     </td>
+ -->
+     <td><%= post.title %></td> 
+     <td><%= post.description %></td>
+     <td>
+       <% p = post.user.profile %>
+       <% if p %>
+         <%= link_to post.user.name, profile_path(p)%>
+       <% else %>
+         <% link_to post.user.name, 'javascript:void(0);' %>
+       <% end %>
+     </td>
+     <td><%= image_tag post.image.url, width: "50px", height: "50px" %></td> 
+     <td><%= link_to 'Show', post_path(post) %></td>            
+   </tr>
+  <% end %>  
+</table>
+<%= link_to 'back', my_post_path%>
+

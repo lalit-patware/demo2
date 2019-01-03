@@ -1,0 +1,31 @@
+<p style= "color: blue; text-align: center;"> CURRENT USER:<%=session[:user]["name"] %></p>
+<h2 style="color:green">  MY POST </h2>
+
+<% if @user.profile %>
+  <%= link_to 'Profile', edit_profile_path(current_user.profile)%>
+<% else %>
+  <%= link_to 'Profile', new_profile_path %>
+<% end %>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Image</th>
+    <th colspan="4"></th>
+  </tr>
+  
+  <% @post.each do |post| %>
+    <tr>       
+      <td><%= post.title %></td>
+      <td><%= post.description %></td>
+      <td><%= image_tag post.image.url, width: "50px", height: "50px" %></td>
+      <td><%= link_to 'Show', post_path(post) %></td>
+      <br><td><%= link_to 'Edit', edit_post_path(post) %></td>
+      <td><%= link_to 'Destroy', post_path(post),
+              method: :delete,
+              data: { confirm: 'delete permanently?' } %></td>            
+    </tr>
+  <% end %>  
+</table>
+<%= link_to 'Back', posts_path %>

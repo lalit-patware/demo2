@@ -1,0 +1,18 @@
+<% @post.comments.each do |comment| %>
+<p>
+  <strong><%= comment.user.name%>:</strong>
+  <%= comment.username %>
+</p>
+<p> 
+  <% if session[:user]["id"] == comment.user_id %>  
+    <%= link_to 'edit', edit_post_comment_path(@post, comment) %>
+    <%= link_to 'Destroy',post_comment_path(@post, comment),
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>       
+   <% end %>     
+</p>
+<% end %>
+
+        
+         
+	  	

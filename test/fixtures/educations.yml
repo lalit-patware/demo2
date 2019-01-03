@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  SSC: MyString
+  HSC: MyString
+  graduation: MyString
+  post_graduation: MyString
+  profile: one
+
+two:
+  SSC: MyString
+  HSC: MyString
+  graduation: MyString
+  post_graduation: MyString
+  profile: two

@@ -1,0 +1,50 @@
+class CommentsController < ApplicationController
+	
+  before_action :set_post, only: [:edit, :destroy]
+  before_action :get_post, only: [:create, :update]
+
+  def create      
+	  @comment =  @post.comments.new(comment_params)
+	  @comment.user_id = session[:user]["id"]
+    if @comment.save
+      redirect_to @post
+    else
+      render 'new'	   
+	  end
+  end
+
+  def edit        
+  end
+
+  def update	
+	  @comment = @post.comments.find(params[:id])
+	  if @comment.update(comment_params)
+      redirect_to @post
+    else
+      render 'edit'
+    end 
+  end
+
+  def destroy 	   
+	  @comment.destroy
+	  redirect_to post_path(@post)	      
+  end
+
+  private
+
+  def comment_params
+	  params.require(:comment).permit(:username)
+  end
+
+  def set_post
+	  @post =  Post.find(params[:post_id])
+    @comment = Comment.find(params[:id]) 
+	  unless session[:user]["id"] == @comment.user_id
+      redirect_to @post, alert: "Unaunthorized access!"
+    end
+  end
+
+  def get_post
+	  @post = Post.find(params[:post_id])	
+  end      
+end

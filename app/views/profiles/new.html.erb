@@ -1,0 +1,34 @@
+<h2>Create Profile </h2>
+<%= form_for @profile do |form| %>  
+  <!-- <p>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </p>   -->   
+  <p>
+    <%= form.label :age %>
+    <%= form.number_field :age %>
+  </p>
+  <p>
+    <%= form.label :contact_no %>
+    <%= form.number_field :contact_no %>
+  </p>     
+  <p>
+    <%= form.label :dob %>
+    <%= form.date_field :dob %>
+  </p>
+  <p>
+     <%= form.label :image %>
+     <%= form.file_field :image %>
+  </p>
+  <p>
+     <%= form.label :city %>
+     <%= form.text_field :city %>
+  </p>  
+  <%= render partial: 'profiles/form', locals: {f: form}%>            
+  <br>
+  <p>
+    <%= form.submit %>
+  </p>      
+  <%= link_to 'Back', posts_path %>    
+<% end %>
+
