@@ -1,0 +1,30 @@
+<h2> List All Users </h2>
+
+<%= form_tag(users_path, method: :get) do %>		
+  Profile <%= text_field_tag :term, params[:term] %>
+  <%= submit_tag 'Search', name: nil %>
+<% end %>
+
+<%= link_to 'Home', posts_path %>		
+
+<table>
+	<tr>
+		<th>NAME</th>
+		<th>USER PROFILE</th>
+	</tr>
+
+  <% @user.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+	    <td>
+        <% p = user.profile %>
+        <% if p %>
+          <%= link_to user.name, profile_path(p)%>
+        <% else %>
+          <% link_to user.name, 'javascript:void(0);' %>
+        <% end %>
+      </td>
+	  </tr>
+   <% end %>	
+</table>
+<br><%= link_to 'Back', posts_path%>

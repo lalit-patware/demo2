@@ -1,0 +1,147 @@
+mohan@mohan:~/projects/OneShop$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   db/schema.rb
+
+no changes added to commit (use "git add" and/or "git commit -a")
+mohan@mohan:~/projects/OneShop$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   app/controllers/application_controller.rb
+	modified:   db/schema.rb
+
+no changes added to commit (use "git add" and/or "git commit -a")
+mohan@mohan:~/projects/OneShop$ git add app/controllers/
+mohan@mohan:~/projects/OneShop$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   app/controllers/application_controller.rb
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   db/schema.rb
+
+mohan@mohan:~/projects/OneShop$ git c
+checkout      cherry        cherry-pick   clean         clone         commit        config        
+mohan@mohan:~/projects/OneShop$ git commit -m 'Temp'
+[master e2fc37f] Temp
+ 1 file changed, 6 deletions(-)
+mohan@mohan:~/projects/OneShop$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   db/schema.rb
+
+no changes added to commit (use "git add" and/or "git commit -a")
+mohan@mohan:~/projects/OneShop$ git pull --rebase origin master 
+error: cannot pull with rebase: You have unstaged changes.
+error: please commit or stash them.
+mohan@mohan:~/projects/OneShop$ git stash list 
+mohan@mohan:~/projects/OneShop$ git stash 
+Saved working directory and index state WIP on master: e2fc37f Temp
+mohan@mohan:~/projects/OneShop$ git stash list 
+stash@{0}: WIP on master: e2fc37f Temp
+mohan@mohan:~/projects/OneShop$ git pull --rebase origin master 
+remote: Enumerating objects: 58, done.
+remote: Counting objects: 100% (45/45), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 24 (delta 18), reused 24 (delta 18), pack-reused 0
+Unpacking objects: 100% (24/24), done.
+From https://github.com/gitmandeep/OneShop
+ * branch            master     -> FETCH_HEAD
+   de0ccd2..9eac759  master     -> origin/master
+First, rewinding head to replay your work on top of it...
+Applying: Temp
+Using index info to reconstruct a base tree...
+M	app/controllers/application_controller.rb
+Falling back to patching base and 3-way merge...
+Auto-merging app/controllers/application_controller.rb
+CONFLICT (content): Merge conflict in app/controllers/application_controller.rb
+error: Failed to merge in the changes.
+Patch failed at 0001 Temp
+Use 'git am --show-current-patch' to see the failed patch
+
+Resolve all conflicts manually, mark them as resolved with
+"git add/rm <conflicted_files>", then run "git rebase --continue".
+You can instead skip this commit: run "git rebase --skip".
+To abort and get back to the state before "git rebase", run "git rebase --abort".
+
+mohan@mohan:~/projects/OneShop$ git status
+rebase in progress; onto 9eac759
+You are currently rebasing branch 'master' on '9eac759'.
+  (fix conflicts and then run "git rebase --continue")
+  (use "git rebase --skip" to skip this patch)
+  (use "git rebase --abort" to check out the original branch)
+
+Unmerged paths:
+  (use "git reset HEAD <file>..." to unstage)
+  (use "git add <file>..." to mark resolution)
+
+	both modified:   app/controllers/application_controller.rb
+
+no changes added to commit (use "git add" and/or "git commit -a")
+mohan@mohan:~/projects/OneShop$ git add app/controllers/application_controller.rb 
+mohan@mohan:~/projects/OneShop$ git rebase --continue
+Applying: Temp
+mohan@mohan:~/projects/OneShop$ gitk
+^C
+mohan@mohan:~/projects/OneShop$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+mohan@mohan:~/projects/OneShop$ git stash pop
+Auto-merging db/schema.rb
+CONFLICT (content): Merge conflict in db/schema.rb
+mohan@mohan:~/projects/OneShop$ git sttaus
+git: 'sttaus' is not a git command. See 'git --help'.
+
+The most similar command is
+	status
+mohan@mohan:~/projects/OneShop$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Unmerged paths:
+  (use "git reset HEAD <file>..." to unstage)
+  (use "git add <file>..." to mark resolution)
+
+	both modified:   db/schema.rb
+
+no changes added to commit (use "git add" and/or "git commit -a")
+mohan@mohan:~/projects/OneShop$ git stash list 
+stash@{0}: WIP on master: e2fc37f Temp
+mohan@mohan:~/projects/OneShop$ git checkout db/schema.rb
+error: path 'db/schema.rb' is unmerged
+mohan@mohan:~/projects/OneShop$ git reset  db/schema.rb
+Unstaged changes after reset:
+M	db/schema.rb
+mohan@mohan:~/projects/OneShop$ git checkout db/schema.rb
+mohan@mohan:~/projects/OneShop$ git stash list 
+stash@{0}: WIP on master: e2fc37f Temp
+mohan@mohan:~/projects/OneShop$ git stash clear
+mohan@mohan:~/projects/OneShop$ git stash list 
+mohan@mohan:~/projects/OneShop$ 

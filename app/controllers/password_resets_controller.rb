@@ -10,7 +10,7 @@ class PasswordResetsController < ApplicationController
       @user.send_password_reset_email
       redirect_to new_password_reset_path, notice: "email sent with password reset link"
     else
-      render 'new', alertterm: "email not found!"
+      render 'new', alert: "email not found!"
     end    
   end
 

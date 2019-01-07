@@ -20,16 +20,6 @@
     
   <% @post.each do |post| %>
    <tr>
-<!--      
-     <td> 
-      <%# p = post.user.profile %>
-      <%# if p %>
-        <%#= link_to post.title, profile_path(p) %>
-      <%# else %>
-        <%#= link_to post.title, 'javascript:void(0);' %>
-      <%# end %>
-     </td>
- -->
      <td><%= post.title %></td> 
      <td><%= post.description %></td>
      <td>
@@ -45,5 +35,5 @@
    </tr>
   <% end %>  
 </table>
-<%= link_to 'back', my_post_path%>
+<%= link_to 'back', users_path%>
 

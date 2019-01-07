@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:session][:email])
     if user.password == params[:session][:password]
       session[:user] = user
-      redirect_to posts_path, notice: "Logged in!"  
+      redirect_to users_path, notice: "Logged in!"  
     else
       render "new", alert: "Email or password is invalid"      
     end

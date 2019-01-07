@@ -4,6 +4,14 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def index
+    if params[:term]
+      @user = User.where(['name LIKE ?', "%#{params[:term]}%"])                      
+    else
+      @user = User.all
+    end
+  end
+
   def new
 	  @user =User.new
 	end
@@ -12,7 +20,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user] = @user
-      redirect_to login_path, notice: "Account successfully created"
+      redirect_to users_path, notice: "Account successfully created"
     else
       render 'new'
     end
@@ -20,7 +28,7 @@ class UsersController < ApplicationController
          
   private
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:term, :name, :email, :password, :password_confirmation)
     end
 end
   

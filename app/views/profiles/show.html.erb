@@ -1,9 +1,4 @@
 <p style= "color: blue; text-align: left;"> Profile of <%=@profile.user.name %></p>
-
-<%= form_tag(profile_path, method: :get) do %>    
-  Post <%= text_field_tag :term, params[:term] %>
-  <%= submit_tag 'Search', name: nil %>
-<% end %>
 <p>
   <strong>name:</strong>
   <%= @profile.user.name %>
@@ -11,7 +6,7 @@
  
 <p>
   <strong>age:</strong>
-  <%= @profile.age %>
+  <%= @profile.age %> 
 </p>
 
 <p>
@@ -91,4 +86,4 @@
 
 <% end %>
 <%#= link_to 'edit', edit_profile_path%>
-<%= link_to 'back', my_post_path%>
+<%= link_to 'back', users_path%>
