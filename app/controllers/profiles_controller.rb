@@ -45,7 +45,7 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:term, :age, :contact_no, :dob, :image, :city, 
+    params.require(:profile).permit(:age, :contact_no, :dob, :image, :city, 
       educations_attributes: [:id, :SSC, :HSC, :graduation, :post_graduation, :_destroy],
       employments_attributes: [:id, :company_1, :position, :address, :_destroy],
       skills_attributes: [:id, :skills, :_destroy])

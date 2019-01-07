@@ -1,4 +1,4 @@
-<%= form_for([ @post, @comment]) do |form| %>
+<%= form_for([ @post, @comment], remote: true)  do |form| %>
   <p>
     <%= form.label :comment %><br>
     <%= form.text_field :username %>

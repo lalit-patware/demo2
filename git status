@@ -1,0 +1,55 @@
+git status
+
+git status
+
+git add app/controllers/
+
+git status
+
+git c
+
+git commit -m 'Temp'
+
+git status
+
+git pull --rebase origin master 
+
+git stash list 
+
+git stash 
+
+git stash list 
+
+git pull --rebase origin master 
+
+git status
+
+git add app/controllers/application_controller.rb 
+
+git rebase --continue
+
+gitk
+
+git status
+
+git stash pop
+
+git sttaus
+
+git status
+
+git stash list 
+
+git checkout db/schema.rb
+
+git reset  db/schema.rb
+
+git checkout db/schema.rb
+
+git stash list 
+
+git stash clear
+
+git stash list 
+
+

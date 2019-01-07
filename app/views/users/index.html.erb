@@ -3,10 +3,9 @@
 <%= form_tag(users_path, method: :get) do %>		
   Profile <%= text_field_tag :term, params[:term] %>
   <%= submit_tag 'Search', name: nil %>
-<% end %>
+<% end %>	
 
-<%= link_to 'Home', posts_path %>		
-
+<br><%= link_to 'Home', posts_path %><br>		
 <table>
 	<tr>
 		<th>NAME</th>
