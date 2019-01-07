@@ -5,3 +5,11 @@
  *= require_self
  *= require_tree .
 */
+.links{
+	margin-right: 20rem;
+	margin-top: 2rem;
+}
+
+p.links > a {
+	margin-right: 10px
+}

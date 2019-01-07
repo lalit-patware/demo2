@@ -1,8 +1,8 @@
-<p style= "color: blue; text-align: center;"> CURRENT USER:<%=session[:user]["name"] %></p>
+<!-- <p style= "color: blue; text-align: center;"> CURRENT USER:<%#=session[:user]["name"] %></p> -->
 <h2 style="color:green;"> STUDENTS DETAILS </h2>
 
-<%= link_to 'New post', new_post_path %>
-<%= link_to 'my post', my_post_path %>
+<%#= link_to 'New post', new_post_path %>
+<%#= link_to 'my post', my_post_path %>
 
 <%= form_tag(posts_path, method: :get) do %>		
   Post <%= text_field_tag :term, params[:term] %>

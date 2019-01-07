@@ -1,8 +1,8 @@
-<p style= "color: blue; text-align: center;"> CURRENT USER:<%=session[:user]["name"] %></p>
+<!-- <p style= "color: blue; text-align: center;"> CURRENT USER:<%#=session[:user]["name"] %></p> -->
 <h2 style="color:green">  MY POST </h2>
 
 <% if @user.profile %>
-  <%= link_to 'Profile', edit_profile_path(current_user.profile)%>
+  <%= link_to 'Profile', profile_path(current_user.profile)%>
 <% else %>
   <%= link_to 'Profile', new_profile_path %>
 <% end %>

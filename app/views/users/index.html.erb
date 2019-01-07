@@ -1,3 +1,4 @@
+<!-- <p style= "color: blue; text-align: center;"> CURRENT USER:<%#=session[:user]["name"] %></p> -->
 <h2> List All Users </h2>
 
 <%= form_tag(users_path, method: :get) do %>		
@@ -5,7 +6,7 @@
   <%= submit_tag 'Search', name: nil %>
 <% end %>	
 
-<br><%= link_to 'Home', posts_path %><br>		
+<br><%= link_to 'Feed', posts_path %><br>		
 <table>
 	<tr>
 		<th>NAME</th>

@@ -30,6 +30,6 @@
 </tbody>  
 </table>
 
-<%= link_to 'Edit', edit_profile_path(@profile) %><br>
+<%= link_to 'Edit', edit_profile_path(@profile), remote: true %><br>
 <%= link_to 'delete', profile_path(@profile) %>
 <%= link_to 'back', posts_path%>
