@@ -1,7 +1,7 @@
 <%= link_to 'Edit Profile', edit_profile_path(current_user.profile), remote: true if current_user.profile == @profile %>
 
 <div class="user-profile">
-  <p style= "color: blue; text-align: left;"> Profile of <%=@profile.user.name %></p>
+  <!-- <p style= "color: blue; text-align: left;"> Profile of <%=@profile.user.name %></p> -->
   <p>
     <strong>name:</strong>
     <%= @profile.user.name %>
@@ -91,4 +91,3 @@
 </div>
 
 <%= link_to 'back', users_path%>
-<%#= link_to 'delete', profile_path(@profile)%>
