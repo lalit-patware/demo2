@@ -1,4 +1,7 @@
-class User < ApplicationRecord   
+class User < ApplicationRecord  
+  
+  after_create :assign_profile 
+  
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes
@@ -20,4 +23,8 @@ class User < ApplicationRecord
     save!
     UserMailer.password_reset(self).deliver_now
   end
+
+  def assign_profile
+    create_profile 
+  end     
 end
