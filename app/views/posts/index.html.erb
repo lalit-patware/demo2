@@ -1,8 +1,4 @@
-<!-- <p style= "color: blue; text-align: center;"> CURRENT USER:<%#=session[:user]["name"] %></p> -->
 <h2 style="color:green;"> STUDENTS DETAILS </h2>
-
-<%#= link_to 'New post', new_post_path %>
-<%#= link_to 'my post', my_post_path %>
 
 <%= form_tag(posts_path, method: :get) do %>		
   Post <%= text_field_tag :term, params[:term] %>
@@ -30,10 +26,13 @@
          <% link_to post.user.name, 'javascript:void(0);' %>
        <% end %>
      </td>
-     <td><%= image_tag post.image.url, width: "50px", height: "50px" %></td> 
+     <td><%= image_tag post.image.url, width: "50px", height: "50px" if post.image? %></td> 
      <td><%= link_to 'Show', post_path(post) %></td>            
    </tr>
   <% end %>  
 </table>
 <%= link_to 'back', users_path%>
 
+<form>
+  <input type = "button" value = "Print Page" onclick = "window.print()" />
+</form>  

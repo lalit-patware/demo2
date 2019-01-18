@@ -7,5 +7,6 @@ class Profile < ApplicationRecord
 	accepts_nested_attributes_for :educations, reject_if: :all_blank, allow_destroy: true
 	accepts_nested_attributes_for :employments, reject_if: :all_blank, allow_destroy: true
 	accepts_nested_attributes_for :skills, reject_if: :all_blank, allow_destroy: true
+	validates_presence_of :age
 	mount_uploader :image, AvatarUploader 
 end

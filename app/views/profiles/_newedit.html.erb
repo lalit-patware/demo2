@@ -1,39 +1,47 @@
-<!-- 
-<p style= "color: blue; text-align: center;"> CURRENT USER:<%#=session[:user]["name"] %></p>
- -->
 <h2>Edit Profile</h2>  
 
-<%= form_with(model: @profile, remote: true) do |form| %>    
- 
 <div class="profile-no-<%= @profile.id %>">
-  <p>
-    <%= form.label :age %><br>
-    <%= form.number_field :age %>
-  </p>
-  <p>
-    <%= form.label :contact_no %><br>
-    <%= form.text_field :contact_no %>
-  </p> 
-  <p>
-    <%= form.label :dob %><br>
-    <%= form.number_field :dob %>
-  </p>
-  <p>
-    <%= form.label :image%><br>
-    <%= form.file_field :image %>
-  </p>
-  <p>
-    <%= form.label :city%><br>
-    <%= form.text_field :city %>
-  </p>  
+  <%= form_with(model: @profile, remote: true) do |form| %>
+    <% if @profile.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@profile.errors.count, "error") %> Please fill correct details
+        </h2>
+        <ul>
+          <% @profile.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %> 
+        
+    <p>
+      <%= form.label :age %><br>
+      <%= form.number_field :age %>
+    </p>
+    <p>
+      <%= form.label :contact_no %><br>
+      <%= form.text_field :contact_no %>
+    </p> 
+    <p>
+      <%= form.label :dob %><br>
+      <%= form.number_field :dob %>
+    </p>
+    <p>
+      <%= form.label :image%><br>
+      <%= form.file_field :image %>
+    </p>
+    <p>
+      <%= form.label :city%><br>
+      <%= form.text_field :city %>
+    </p>  
 
-  <%= render partial: 'profiles/form', locals: {f: form}%>  
-  
-</div>
-  <p>
-    <%= form.submit %>
-  </p>
+    <%= render partial: 'profiles/form', locals: {f: form}%>  
+    
+  </div>
+     <p>
+       <%= form.submit %>
+     </p>
 
-  <%= link_to 'Back', my_post_path %>
-
-<% end %>
+  <% end %>
+<%= link_to 'Back', posts_path %>
