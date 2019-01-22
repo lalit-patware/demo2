@@ -1,3 +1,4 @@
+<!-- <div class = "new-comment"> -->
 <%= form_for([ @post, @comment], remote: true)  do |form| %>
   <p>
     <%= form.label :comment %><br>
@@ -7,5 +8,6 @@
     <%= form.submit %>
   </p>
 <% end %>
+</div>
 
 

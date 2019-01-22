@@ -6,19 +6,21 @@ class LikesController < ApplicationController
     else
 	    @post =  Post.find(params[:post_id])
 	    @post.likes.create(user_id: session[:user]["id"])
-	    redirect_to post_path(@post)
+      #@post_id = @post.id
+	    #redirect_to post_path(@post)
     end
   end
 
   def destroy
   	@post =  Post.find(params[:post_id])
 	  @like = @post.likes.find(params[:id])
-	  if !(already_liked)
-	    flash[:notice] = "Cannot unlike"
-    else
-      @like.destroy
-    end
-      redirect_to post_path(@post)
+    @post_id = @post.id
+    @like.destroy
+	  # if !(already_liked)
+	  #   flash[:notice] = "Cannot unlike"
+    # else      
+    # end
+    #redirect_to post_path(@post)
   end
 	
 	def already_liked

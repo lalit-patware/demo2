@@ -4,7 +4,7 @@ class ProfilesController < ApplicationController
   before_action :check_for_update, only: [:edit]
 
   def index
-    @profile = Profile.all
+    @profiles = Profile.all
   end
 
 	def new
@@ -30,7 +30,7 @@ class ProfilesController < ApplicationController
 
 	def update
     if @profile.update(profile_params)
-      # redirect_to @profile
+       #redirect_to @profile
     else
       render 'edit'
     end

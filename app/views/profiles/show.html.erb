@@ -1,9 +1,4 @@
-<%#if current_user.profile == @profile %>
-  <%= link_to 'Edit Profile', edit_profile_path(current_user.profile), remote: true if current_user.profile == @profile %>
-<%# else %>
-  <%#= link_to 'Edit Profile', new_profile_path, remote: true %>
-<%# end %>
-
+<%= link_to 'Edit Profile', edit_profile_path(current_user.profile), remote: true if current_user.profile == @profile %>
 
 <div class="user-profile">
   <%= render 'show' %>

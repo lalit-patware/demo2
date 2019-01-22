@@ -19,17 +19,20 @@
   <% end %>
 </p>
 
-<p><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+<div class="like-unlike-box">
+  <%= render partial: 'likes/like_unlike', locals: {post: @post}%>
+</div>
 
-<% pre_like = @post.likes.find { |like| like.user_id == session[:user]["id"]} %>
-<% if pre_like %>
-  <%= button_to 'Unlike', post_like_path(@post, pre_like), method: :delete %>
-<% else %>
-  <%= button_to 'Like', post_likes_path(@post), method: :post %>
-<% end %>
+<div class ="all-comments">
+  <h2 style="color:red">comments</h2>
+  <% @post.comments.each do |comment| %>
+  <div class="comment-no-<%= comment.id %>">
+    <%= render partial: 'comments/comment', locals: {comment: comment } %>
+  </div>
+  <%end%>
+</div>
+<div>  
+  <%= render 'comments/form'%>
+</div>
 
-
-<h2 style="color:red">comments</h2>
-<%= render 'comments/comment'%>
-<%= render 'comments/form'%>
 <%= link_to 'Back', posts_path %>

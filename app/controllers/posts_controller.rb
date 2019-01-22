@@ -6,10 +6,11 @@ class PostsController < ApplicationController
     
   def index
     if params[:term]
-      @post = Post.where(['title LIKE ?  OR description LIKE ?',
+      @posts = Post.where(['title LIKE ?  OR description LIKE ?',
                       "%#{params[:term]}%","%#{params[:term]}%"])
+
     else
-      @post = Post.all
+      @posts = Post.all
     end
   end
     
@@ -50,11 +51,8 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    if @post.destroy
-      redirect_to posts_path
-    else
-      redirect_to posts_path
-    end
+      @post_destroy = @post.id
+      @post.destroy
   end  
 
   private

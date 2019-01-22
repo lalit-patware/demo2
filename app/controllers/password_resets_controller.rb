@@ -20,7 +20,7 @@ class PasswordResetsController < ApplicationController
   end
 
   def update
-    @user =User.find_by_reset_digest(params[:id])
+    @user = User.find_by_reset_digest(params[:id])
     if @user.reset_set_at < 2.hours.ago
       redirect_to new_password_reset_path, :alert => "Password reset has expired."
     elsif @user.update_attributes(params[:password_resets].as_json)

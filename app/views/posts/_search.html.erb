@@ -1,0 +1,4 @@
+<%= form_tag(posts_path, method: :get, remote: true) do %>	
+  Post <%= text_field_tag :term, params[:term]%>
+  <%= submit_tag 'Search', name: nil %>
+<% end %>

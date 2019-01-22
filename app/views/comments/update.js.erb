@@ -1,1 +1,1 @@
-$('.comment-no-<%= @comment.id %>').append("<%= escape_javascript render(:partial => 'show', locals: {comment: @comment}) %>")
+$('.comment-no-<%= @comment.id %>').html("<%= escape_javascript render(:partial => 'comment', locals: {comment: @comment}) %>")

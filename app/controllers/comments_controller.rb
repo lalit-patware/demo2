@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
 	  @comment =  @post.comments.new(comment_params)
 	  @comment.user_id = session[:user]["id"]
     if @comment.save
-      redirect_to @post
+      #redirect_to @post
     else
       render 'new'	   
 	  end
@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
   def update
 	  @comment = @post.comments.find(params[:id])
 	  if @comment.update(comment_params)
-      redirect_to @post
+      #redirect_to @post
     else
       render 'edit'
     end 
@@ -27,7 +27,8 @@ class CommentsController < ApplicationController
 
   def destroy 	   
 	  @comment.destroy
-	  redirect_to post_path(@post)	      
+    @comment_id = @comment.id
+	  #redirect_to post_path(@post)	      
   end
 
   private

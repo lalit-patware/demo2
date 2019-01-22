@@ -26,5 +26,6 @@ class User < ApplicationRecord
 
   def assign_profile
     create_profile 
-  end     
+  end
+
 end
