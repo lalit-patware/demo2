@@ -1,5 +1,6 @@
+<div class="comment-no-<%= comment.id %>">
 <p>
-	<strong><%= comment.user.name %>:</strong>
+	<strong><%=comment.user.name %>:</strong>
   <%= comment.username %>
 </p>
 <p> 
@@ -10,3 +11,4 @@
                data: { confirm: 'Are you sure?' }, remote: true %>       
    <% end %>     
 </p>
+</div>

@@ -26,12 +26,10 @@
 <div class ="all-comments">
   <h2 style="color:red">comments</h2>
   <% @post.comments.each do |comment| %>
-  <div class="comment-no-<%= comment.id %>">
     <%= render partial: 'comments/comment', locals: {comment: comment } %>
-  </div>
   <%end%>
 </div>
-<div>  
+<div class = 'user-comment'>  
   <%= render 'comments/form'%>
 </div>
 

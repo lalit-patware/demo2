@@ -1,8 +1,9 @@
 <!-- <div class = "new-comment"> -->
 <%= form_for([ @post, @comment], remote: true)  do |form| %>
+  <%= render 'comment_errors' %>
   <p>
     <%= form.label :comment %><br>
-    <%= form.text_field :username %>
+    <%= form.text_field :username, class: 'username'%>
   </p>  
   <p>
     <%= form.submit %>

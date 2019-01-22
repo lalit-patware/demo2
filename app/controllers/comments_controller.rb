@@ -2,11 +2,12 @@ class CommentsController < ApplicationController
 	
   before_action :set_post, only: [:edit, :destroy]
   before_action :get_post, only: [:create, :update]
-
+  
   def create      
 	  @comment =  @post.comments.new(comment_params)
 	  @comment.user_id = session[:user]["id"]
-    if @comment.save
+    if @comment.save 
+      #notice: "Comment  "
       #redirect_to @post
     else
       render 'new'	   
@@ -28,7 +29,7 @@ class CommentsController < ApplicationController
   def destroy 	   
 	  @comment.destroy
     @comment_id = @comment.id
-	  #redirect_to post_path(@post)	      
+	  	      
   end
 
   private
