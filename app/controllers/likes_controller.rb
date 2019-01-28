@@ -6,7 +6,6 @@ class LikesController < ApplicationController
     else
 	    @post =  Post.find(params[:post_id])
 	    @post.likes.create(user_id: session[:user]["id"])
-      #@post_id = @post.id
 	    #redirect_to post_path(@post)
     end
   end

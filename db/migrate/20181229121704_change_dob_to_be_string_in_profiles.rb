@@ -1,4 +1,5 @@
 class ChangeDobToBeStringInProfiles < ActiveRecord::Migration[5.2]
-  def change
+  def change  	
+  	change_column :profiles, :dob, :string
   end
 end

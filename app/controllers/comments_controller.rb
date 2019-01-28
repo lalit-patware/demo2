@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
 	  @comment =  @post.comments.new(comment_params)
 	  @comment.user_id = session[:user]["id"]
     if @comment.save 
-      #notice: "Comment  "
+      #notice: "Comment"
       #redirect_to @post
     else
       render 'new'	   

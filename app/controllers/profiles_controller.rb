@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   
-  before_action :set_profile, only: [:edit, :show, :destroy, :update]
+  before_action :set_profile
   before_action :check_for_update, only: [:edit]
 
   def index
