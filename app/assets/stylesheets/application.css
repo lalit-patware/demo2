@@ -13,3 +13,7 @@
 p.links > a {
 	margin-right: 10px
 }
+
+[class*="col-"] {
+    margin-bottom: 15px;
+}

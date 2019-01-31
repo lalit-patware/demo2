@@ -1,6 +1,18 @@
 <%= link_to 'Edit Profile', edit_profile_path(current_user.profile), remote: true if current_user.profile == @profile %>
 
 <div class="user-profile">
+	<div style="float: right;">
+              <%= select_tag 'by_user', options_for_select(all_users.map{ |u| [u.name, u.id] }), { prompt: 'Select user', id: 'user-filter', class: "btn btn-warning btn-xs"} %>
+            </div>
+
+            <script type="text/javascript">
+              $('#user-filter').on('change', function(){
+                $.ajax({
+                type: 'GET',
+                url: '/profiles/' + this.value
+                });
+              });
+            </script>
   <%= render 'show' %>
 </div>
 

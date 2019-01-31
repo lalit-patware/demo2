@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
   <style type="text/css">
-   body { background: snow !important; } /* Adding !impor
+    body { background: snow !important; } /* Adding !important
   </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
@@ -15,16 +15,18 @@
     <%= javascript_include_tag "application" %>
   </head>
   <body>
-  <div class="navbar navbar-default navbar-static-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">Demo</a>
-        <% if user = session[:user] %>
-          <ul class="nav navbar-nav navbar-right">
-          <div class="dropdown navbar-right">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%=session[:user]["name"] %>
-              <span class="caret"></span></button>
-            </button>
+    <div class="user-profile">
+   </div>
+    <div class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Demo</a>
+          <% if user = session[:user] %>
+            <ul class="nav navbar-nav navbar-right">
+            <div class="dropdown navbar-right">
+              <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%=session[:user]["name"] %>
+                <span class="caret"></span></button>
+              </button>
             <ul class="dropdown-menu">
               <% if current_user.profile %>
                 <li><%= link_to 'profile', profile_path(current_user.profile) %> </li>
@@ -35,29 +37,44 @@
                 <%= link_to "Logout", logout_path,data: {confirm: 'confirm'}%>
               </li>
             </ul>
-          </div>
-          <p class="links">
-            <%= link_to "MY POST", my_post_path, class: "btn btn-primary btn-xs" %> 
-            <%= link_to 'New post', new_post_path, class: "btn btn-primary btn-xs"%>
-            <%= link_to  'Feed', posts_path, class: "btn btn-primary btn-xs"%>
-          </p>
-         </ul>
-        <% end %>
-    </div>
-  </div>     
-  
-  <div class="container">
-    <div class="row">
-    <div class="col-xs-10 col-xs-offset-2 centered">
-      <%= bootstrap_flash %>
-      <%= yield %>
-    </div>
-  </div>          
-  </div>
+            </div>
+            <div style="float: right;">
+              <%= select_tag 'by_user', options_for_select(all_users.map{ |u| [u.name, u.id] }), { prompt: 'Select user', id: 'user-filter', class: "btn btn-warning btn-xs"} %>
+            </div>
 
-      <footer class="nav navbar-nav navbar-">
-        <p>&copy; Facebook 2018</p>
-      </footer>
+            <script type="text/javascript">
+              $('#user-filter').on('change', function(){
+                $.ajax({
+                type: 'GET',
+                url: '/profiles/' + this.value
+                });
+              });
+            </script>
+
+            <p class="links">
+              <%= link_to "MY POST", my_post_path, class: "btn btn-primary btn-xs" %> 
+              <%= link_to 'New post', new_post_path, class: "btn btn-primary btn-xs"%>
+              <%= link_to  'Feed', posts_path, class: "btn btn-primary btn-xs"%>
+            </p>
+           </ul>
+          <% end %>
+      </div>
+    </div>     
+    
+    <div class="container">
+      <div class="row">
+      <div class="col-xs-10 col-xs-offset-2 centered">
+        <%= bootstrap_flash %>
+        <%= yield %>
+      </div>
+      </div>          
+    </div>
+      <center>
+        <footer>
+          <div class="container">
+            <p>&copy; Facebook 2018</p>
+          </div>
+        </footer>
 
     </div> <!-- /container -->
 

@@ -6,13 +6,15 @@
   <%= link_to 'Profile', new_profile_path %>
 <% end %>
 
-<table style = "margin: 10px">
+<table>
+  <div class= "row">
   <tr>
-    <th style = "padding: 10px">Title</th>
-    <th style = "padding: 10px">Description</th>
-    <th style = "padding: 10px">Image</th>
-    <th colspan="4">Action</th>
+    <th class="col-md-2">Title</th>
+    <th class="col-md-2">Description</th>
+    <th class="col-md-2">Image</th>
+    <th class="col-md-2">Action</th>
   </tr>
+  </div>
   
   <% @post.each do |post| %>
     <tr class="post-row-<%= post.id %>">
