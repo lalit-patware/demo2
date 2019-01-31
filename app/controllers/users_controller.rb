@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-
-  def show
-    @user = User.find(params[:id])
-  end
+  
+  def new
+	  @user =User.new
+	end
 
   def index
     if params[:term]
@@ -12,11 +12,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def new
-	  @user =User.new
-	end
-
-	def create
+  def create
     @user = User.new(user_params)
     if @user.save
       session[:user] = @user
@@ -26,6 +22,10 @@ class UsersController < ApplicationController
     end
   end 
          
+  def show
+    @user = User.find(params[:id])
+  end
+
   private
     def user_params
       params.require(:user).permit(:term, :name, :email, :password, :password_confirmation)

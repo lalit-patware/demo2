@@ -1,8 +1,8 @@
 <%= link_to 'Edit Profile', edit_profile_path(current_user.profile), remote: true if current_user.profile == @profile %>
 
-<div class="user-profile">
+<!-- <div class="user-profile">
 	<div style="float: right;">
-              <%= select_tag 'by_user', options_for_select(all_users.map{ |u| [u.name, u.id] }), { prompt: 'Select user', id: 'user-filter', class: "btn btn-warning btn-xs"} %>
+              <%#= select_tag 'by_user', options_for_select(all_users.map{ |u| [u.name, u.id] }), { prompt: 'Select user', id: 'user-filter', class: "btn btn-warning btn-xs"} %>
             </div>
 
             <script type="text/javascript">
@@ -12,8 +12,10 @@
                 url: '/profiles/' + this.value
                 });
               });
-            </script>
+            </script> -->
   <%= render 'show' %>
 </div>
 
-<%= link_to 'back', posts_path%>
+<p>
+<%= link_to 'back', posts_path, class: "btn btn-primary btn-xs"%>
+</p>

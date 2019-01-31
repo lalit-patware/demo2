@@ -2,8 +2,6 @@
 
 one:
   image: MyString
-  post: one
 
 two:
   image: MyString
-  post: two

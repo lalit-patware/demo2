@@ -22,7 +22,9 @@
      </td>
      <td><%= image_tag post.image.url, width: "100px", height: "100px" if post.image? %>
      </td> 
-     <td><%= link_to 'Show', post_path(post) %></td>            
+     <p class = "links">
+     <td><%= link_to 'Show', post_path(post), class: "btn btn-primary btn-xs" %></td>            
+     </p>
    </tr>
   <% end %>  
 </table>
