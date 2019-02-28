@@ -1,35 +1,26 @@
-<h2> SIGN UP </h2>
-<%= form_for @user do |form| %>
-  <% if @user.errors.any? %>
-      <div id="error_explanation">
-        <h2>
-          <%= pluralize(@user.errors.count, "error") %> Please fill correct details
-        </h2>
-        <ul>
-          <% @user.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
+<h2 style="color:green;"> SIGN UP </h2>
+
+<%= bootstrap_form_for @user do |f| %>
+<div class="col-sm-5">    
   <p>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
+    <%#= f.label :name %><br>
+    <%= f.text_field :name %>
   </p> 
   <p>
-    <%= form.label :email %><br>
-    <%= form.email_field :email %>
+    <%#= f.label :email %><br>
+    <%= f.email_field :email, label_class: "custom-class" %>
   </p>
   <p>
-     <%= form.label :password %><br>
-     <%= form.password_field :password %>
+     <%#= f.label :password %><br>
+     <%= f.password_field :password, help: "Must be at least 6 characters long" %>
   </p>
   <p>
-     <%= form.label :password_confirmation %><br>
-     <%= form.password_field :password_confirmation %> 
+     <%#= f.label :password_confirmation %><br>
+     <%= f.password_field :password_confirmation, label: "Confirm Password" %> 
   </p>  
   </p>
-     <%= form.submit "create my account" %>
+     <%= f.submit "create my account", icon: "user" ,  class: "btn btn-primary btn-xs"%>
   </p>  
 <% end %>
-<%= link_to 'Back', login_path %>
+<%= link_to 'Back', login_path, class: "btn btn-primary btn-xs" %>
+</div>

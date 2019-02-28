@@ -12,7 +12,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :password, confirmation: true, presence: true,
 	                 length: {minimum: 5 }
-  validate :password_complexity
+  # validate :password_complexity
 
   def create_reset_digest
   	self.reset_digest = SecureRandom.urlsafe_base64
@@ -29,10 +29,10 @@ class User < ApplicationRecord
     create_profile 
   end
 
-  def password_complexity
-    return if password.blank? || password =~ /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,20}$/
+  # # def password_complexity
+  # #   return if password.blank? || password =~ /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,20}$/
 
-    errors.add :password, 'Complexity requirement not met. Length should be 6-20 characters and include: 1 uppercase, 1 lowercase, 1 digit and 1 special character'
-  end
+  #   errors.add :password, 'Complexity requirement not met. Length should be 6-20 characters and include: 1 uppercase, 1 lowercase, 1 digit and 1 special character'
+  # end
 
 end

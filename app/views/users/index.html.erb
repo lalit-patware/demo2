@@ -1,25 +1,24 @@
+<div class="user-profile">
 <h2> List All Users </h2>
-<!-- <div class="user-profile">
-</div> -->
 
-<%= form_tag(users_path, method: :get) do %>		
+<%= form_tag(users_path, method: :get) do %>    
   Profile <%= text_field_tag :term, params[:term] %>
   <%= submit_tag 'Search', name: nil %>
-<% end %>	
+<% end %> 
 
 <br>
-<%= link_to 'Feed', posts_path %><br>		
+<%= link_to 'Feed', posts_path %><br>   
 <table>
   <div class= "row">
-	<tr>
-		<th class="col-md-7">NAME</th>
-		<th class="col-md-7">USER PROFILE</th>
-	</tr>
+  <tr>
+    <th class="col-md-7">NAME</th>
+    <th class="col-md-7">USER PROFILE</th>
+  </tr>
 
   <% @user.each do |user| %>
     <tr>
       <td><%= user.name %></td>
-	    <td>
+      <td>
         <% p = user.profile %>
         <% if p %>
           <%= link_to user.name, profile_path(p)%>
@@ -27,9 +26,10 @@
           <% link_to user.name, 'javascript:void(0);' %>
         <% end %>
       </td>
-	  </tr>
-   <% end %>	
+    </tr>
+   <% end %>  
 </table>
 <p class = "links">
 <br><%= link_to 'Back', posts_path, class: "btn btn-primary btn-xs"%>
 </p>
+</div>

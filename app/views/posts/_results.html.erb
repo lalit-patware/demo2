@@ -2,7 +2,7 @@
   <div class= "row">
   <tr>
     <th class="col-md-2">Title</th><br>
-    <br class="col-md-2"><th>Description</th>
+    <th class="col-md-2">Description</th>
     <th class="col-md-2">UserName </th>
     <th class="col-md-2">Image</th>
     <th colspan="4"></th>
@@ -23,7 +23,7 @@
      <td><%= image_tag post.image.url, width: "100px", height: "100px" if post.image? %>
      </td> 
      <p class = "links">
-     <td><%= link_to 'Show', post_path(post), class: "btn btn-primary btn-xs" %></td>            
+     <td class="col-md-2"><%= link_to 'Show', post_path(post), class: "btn btn-primary btn-xs" %></td>            
      </p>
    </tr>
   <% end %>  

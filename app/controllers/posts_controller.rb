@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   before_action :check_for_update, only: :edit    
     
   def index
+    # @posts = Post.all.page params[:page]
     if params[:term]
       @posts = Post.where(['title LIKE ?  OR description LIKE ?',
                       "%#{params[:term]}%","%#{params[:term]}%"])

@@ -1,6 +1,7 @@
-<h2 style="color:green;"> STUDENTS DETAILS </h2>
-<!-- <div class="user-profile">
-</div> -->
+<div class= "user-profile">
+	
+<h3 style="color:green;"> USERS POSTS </h3>
+
 <div>
    <%= render partial: 'search'%>
 </div>
@@ -13,5 +14,8 @@
 <%= link_to 'back', users_path, class: "btn btn-primary btn-xs"%>
 </p>
 
-<div class="user-profile">
 </div>
+
+<center>
+  <%#= paginate @posts, window: 2 %><br>
+</center> 

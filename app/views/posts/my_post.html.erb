@@ -1,3 +1,4 @@
+<div class = "user-profile">
 <h2 style="color:green">  MY POST </h2>
 
 <%# if @user.profile %>
@@ -5,7 +6,6 @@
 <%# else %>
   <%#= link_to 'Profile', new_profile_path %>
 <%# end %>
-
 <table>
   <div class= "row">
   <tr>
@@ -28,3 +28,4 @@
 <p class = "links">
 <%= link_to 'Back', posts_path, class: "btn btn-primary btn-xs" %>
 </p>
+</div>

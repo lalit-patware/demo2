@@ -3,7 +3,8 @@ class CommentsController < ApplicationController
   before_action :set_post, only: [:edit, :destroy]
   before_action :get_post, only: [:create, :update]
   
-  def create      
+  def create   
+    binding.pry   
 	  @comment =  @post.comments.new(comment_params)
 	  @comment.user_id = session[:user]["id"]
     if @comment.save 

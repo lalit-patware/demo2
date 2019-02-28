@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base	
 
 	helper_method :all_users
-  helper_method :all_posts
+  # helper_method :all_posts
   
   def current_user
     @current_user = User.find(session[:user]['id'])
@@ -10,9 +10,5 @@ class ApplicationController < ActionController::Base
   def all_users
     User.all  
   end
-
-  # def all_posts
-  # 	Post.all
-  # end
-
+  
 end

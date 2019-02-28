@@ -1,7 +1,8 @@
 <!-- <p style= "color: blue; text-align: center;"> CURRENT USER:<%#=session[:user]["name"] %></p> -->
+<div class = "user-profile">
 <h2 style="color:green">Create New Post</h2>
 
-<%= form_for @post do |form| %>
+<%= bootstrap_form_for @post do |form| %>
   <% if @post.errors.any? %>
       <div id="error_explanation">
         <h2>
@@ -15,15 +16,15 @@
       </div>
   <% end %>
   <p>
-    <%= form.label :title %><br>
+    <%#= form.label :title %><br>
     <%= form.text_field :title %>
   </p>   
   <p>
-     <%= form.label :description %><br>
+     <%#= form.label :description %><br>
      <%= form.text_area :description %>
   </p>
   <p>
-     <%= form.label :image %><br>
+     <%#= form.label :image %><br>
      <%= form.file_field :image %>
    </p>
    <p>
@@ -34,4 +35,4 @@
 <p>
 <%= link_to 'Back', posts_path, class: "btn btn-primary btn-xs" %>  
 </p>
-
+</div>

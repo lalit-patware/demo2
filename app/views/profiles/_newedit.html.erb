@@ -1,7 +1,7 @@
 <h2>Edit Profile</h2>  
 
 <div class="profile-no-<%= @profile.id %>">
-  <%= form_with(model: @profile, remote: true) do |form| %>
+  <%= bootstrap_form_with(model: @profile, remote: true) do |form| %>
     <% if @profile.errors.any? %>
       <div id="error_explanation">
         <h2>
@@ -16,23 +16,23 @@
     <% end %> 
         
     <p>
-      <%= form.label :age %><br>
+      <%#= form.label :age %><br>
       <%= form.number_field :age %>
     </p>
     <p>
-      <%= form.label :contact_no %><br>
+      <%#= form.label :contact_no %><br>
       <%= form.text_field :contact_no %>
     </p> 
     <p>
-      <%= form.label :dob %><br>
+      <%#= form.label :dob %><br>
       <%= form.date_field :dob %>
     </p>
     <p>
-      <%= form.label :image%><br>
+      <%#= form.label :image%><br>
       <%= form.file_field :image %>
     </p>
     <p>
-      <%= form.label :city%><br>
+      <%#= form.label :city%><br>
       <%= form.text_field :city %>
     </p>  
 

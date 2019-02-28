@@ -15,16 +15,14 @@
     <%= javascript_include_tag "application" %>
   </head>
   <body>
-    <div class="user-profile">
-   </div>
     <div class="navbar navbar-default navbar-static-top">
       <div class="container">
         <a class="navbar-brand" href="#">Demo</a>
           <% if user = session[:user] %>
             <ul class="nav navbar-nav navbar-right">
             <div class="dropdown navbar-right">
-              <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%=session[:user]["name"] %>
+              <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span>
+                Welcome <%=session[:user]["name"] %>
                 <span class="caret"></span></button>
               </button>
             <ul class="dropdown-menu">
@@ -46,7 +44,7 @@
               $('#user-filter').on('change', function(){
                 $.ajax({
                 type: 'GET',
-                url: '/profiles/' + this.value
+                 url: '/profiles/' + this.value
                 });
               });
             </script>
@@ -72,7 +70,7 @@
       <center>
         <footer>
           <div class="container">
-            <p>&copy; Facebook 2018</p>
+            <p>&copy; Oaktree 2018</p>
           </div>
         </footer>
 
@@ -89,3 +87,5 @@
 <%#end%>
 
  -->
+<!-- <div class="user-profile">
+  </div> -->
